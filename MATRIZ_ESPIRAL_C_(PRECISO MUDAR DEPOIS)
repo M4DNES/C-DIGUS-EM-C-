@@ -1,0 +1,60 @@
+#include <stdio.h>
+void main(){
+  int n;
+  scanf("%d", &n);
+  int m;
+  scanf("%d", &m);
+  int V[n][m];
+  int i;
+  int count_esquerda_direita = 0;
+  int cima_baixo = 1;
+  int direita_esquerda = 2;
+  int baixo_cima = 2;
+  int k = 0;
+  int p = 0;
+  int mov = 0;
+  int ced = 0;
+  int cb = m - 1;
+  int de =  n - 1;
+  int bc = 0;
+  int total = m*n;
+    while (mov< total)
+    {
+      for (i = 0 + count_esquerda_direita; i<m - count_esquerda_direita && mov < total; i++)
+      {
+        scanf("%d", &V[ced][i]);
+        mov++;
+      }
+      count_esquerda_direita++;
+      ced++;
+      for (int j = cima_baixo; j<(n - cima_baixo + 1) && mov < total; j++)
+      {
+        scanf("%d", &V[j][cb]);
+        mov++;
+      }
+      cima_baixo++;
+      cb--;
+      for (int a = (m - direita_esquerda); a>=k && mov < total; a--)
+      {
+        scanf("%d", &V[de][a]);
+        mov++;
+      }
+      de--;
+      direita_esquerda++;
+      k++;
+      for (int d = (n - baixo_cima); d>p && mov < total; d--)
+      {
+        scanf("%d", &V[d][bc]);
+        mov++;
+      }
+      baixo_cima++;
+      bc++;
+      p++;
+    }
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) {
+      printf("%d ", V[i][j]);
+    }
+    printf("\n");
+  }
+}
